@@ -14,7 +14,7 @@ AS A manager
 
 I WANT to generate a webpage that displays my team's basic info
 
-SO THAT I I have quick access to emails and GitHub profiles
+SO THAT I have quick access to emails and GitHub profiles
 
 ```
 
@@ -48,7 +48,7 @@ This repos uses the inquirer npm package, OOP & TDD principles.
 
 ## License
 
-This project is licensed under the undefined license.
+This project is licensed under the MIT license.
 
 ## Contributing
 
