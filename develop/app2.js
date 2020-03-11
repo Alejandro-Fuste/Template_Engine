@@ -35,8 +35,24 @@ const questions = {
 	]
 };
 
-inquirer
-	.prompt(questions.manager)
-	.then((res) => console.log(res))
-	.then(() => console.log('Successfully wrote file!'))
-	.catch((err) => console.log(err));
+function writeToFile(fileName, data) {
+	fs.writeFile(fileName, data, (err) => {
+		if (err) throw err;
+	});
+}
+
+function init() {
+	inquirer
+		.prompt(questions.manager)
+		.then((res) => {
+			const { name, id, email, officeNumber } = res;
+			const man = new Manager(name, id, email, officeNumber);
+			const data = [ man ];
+
+			return writeToFile(outputPath, render(data));
+		})
+		.then(() => console.log('Successfully wrote file!'))
+		.catch((err) => console.log(err));
+}
+
+init();
