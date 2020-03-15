@@ -43,7 +43,7 @@ console.log(questions);
 // for the provided `render` function to work!```
 
 
-
+let stop = false;
 
 function repeat(){
 
@@ -56,7 +56,6 @@ function repeat(){
 							const { engName, engID, engEmail, engGitHub } = res;
 							const eng = new Engineer(engName, engID, engEmail, engGitHub);
 							data.push(eng);
-							console.log(data);
 							writeToFile(outputPath, render(data));
 						});
 						break;
@@ -65,11 +64,11 @@ function repeat(){
 							const { intName, intID, intEmail, school } = res;
 							const int = new Intern(intName, intID, intEmail, school);
 							data.push(int);
-							console.log(data);
 							writeToFile(outputPath, render(data));
-							repeat(res);
 						});
-						break;
+                        break;
+                    default:
+                        stop = true;
 				}
 			})
 }

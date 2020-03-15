@@ -104,6 +104,7 @@ function repeat() {
 					const eng = new Engineer(engName, engID, engEmail, engGitHub);
 					data.push(eng);
 					writeToFile(outputPath, render(data));
+					repeat();
 				});
 				break;
 			case 'Intern':
@@ -112,8 +113,10 @@ function repeat() {
 					const int = new Intern(intName, intID, intEmail, school);
 					data.push(int);
 					writeToFile(outputPath, render(data));
-					repeat(res);
+					repeat();
 				});
+				break;
+			default:
 				break;
 		}
 	});
@@ -136,7 +139,7 @@ function init() {
 							const eng = new Engineer(engName, engID, engEmail, engGitHub);
 							data.push(eng);
 							writeToFile(outputPath, render(data));
-							// repeat();
+							repeat();
 						});
 						break;
 					case 'Intern':
@@ -145,8 +148,10 @@ function init() {
 							const int = new Intern(intName, intID, intEmail, school);
 							data.push(int);
 							writeToFile(outputPath, render(data));
-							// repeat();
+							repeat();
 						});
+						break;
+					default:
 						break;
 				}
 			})
