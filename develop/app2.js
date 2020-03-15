@@ -14,23 +14,76 @@ const questions = {
 	manager: [
 		{
 			type: 'input',
-			name: 'name',
+			name: 'manName',
 			message: "What is your manager's name?"
 		},
 		{
 			type: 'input',
-			name: 'id',
+			name: 'manID',
 			message: "What is your manager's id?"
 		},
 		{
 			type: 'input',
-			name: 'email',
+			name: 'manEmail',
 			message: "What is your manager's email?"
 		},
 		{
 			type: 'input',
 			name: 'officeNumber',
 			message: "What is your manager's office number?"
+		}
+	],
+	choice: [
+		{
+			type: 'list',
+			name: 'memberChoice',
+			message: 'Which type of team member would you like to add?',
+			choices: [ 'Engineer', 'Intern', "I don't want to add anyone else" ],
+			default: 'Use arrow keys'
+		}
+	],
+	engineer: [
+		{
+			type: 'input',
+			name: 'engName',
+			message: "What is your engineer's name?"
+		},
+		{
+			type: 'input',
+			name: 'engID',
+			message: "What is your engineer's id?"
+		},
+		{
+			type: 'input',
+			name: 'engEmail',
+			message: "What is your engineer's email?"
+		},
+		{
+			type: 'input',
+			name: 'engGitHub',
+			message: "What is your engineer's GitHub username?"
+		}
+	],
+	intern: [
+		{
+			type: 'input',
+			name: 'intName',
+			message: "What is your intern's name?"
+		},
+		{
+			type: 'input',
+			name: 'intID',
+			message: "What is your intern's id?"
+		},
+		{
+			type: 'input',
+			name: 'intEmail',
+			message: "What is your intern's email?"
+		},
+		{
+			type: 'input',
+			name: 'school',
+			message: "What is your intern's school?"
 		}
 	]
 };
@@ -44,12 +97,35 @@ function writeToFile(fileName, data) {
 function init() {
 	inquirer
 		.prompt(questions.manager)
-		.then((res) => {
-			const { name, id, email, officeNumber } = res;
-			const man = new Manager(name, id, email, officeNumber);
-			const data = [ man ];
+		.then((resp) => {
+			const data = [];
 
-			return writeToFile(outputPath, render(data));
+			const { manName, manID, manEmail, officeNumber } = resp;
+			const man = new Manager(manName, manID, manEmail, officeNumber);
+			data.push(man);
+			writeToFile(outputPath, render(data));
+
+			inquirer.prompt(questions.choice).then((res) => {
+				if (res.memberChoice === 'Engineer') {
+					inquirer.prompt(questions.engineer).then((re) => {
+						const { engName, engID, engEmail, engGitHub } = re;
+						const eng = new Engineer(engName, engID, engEmail, engGitHub);
+						data.push(eng);
+						console.log(data);
+						writeToFile(outputPath, render(data));
+					});
+				} else if (res.memberChoice === 'Intern') {
+					inquirer.prompt(questions.intern).then((r) => {
+						const { intName, intID, intEmail, school } = r;
+						const int = new Intern(intName, intID, intEmail, school);
+						data.push(int);
+						console.log(data);
+						writeToFile(outputPath, render(data));
+					});
+				} else {
+					return;
+				}
+			});
 		})
 		.then(() => console.log('Successfully wrote file!'))
 		.catch((err) => console.log(err));
