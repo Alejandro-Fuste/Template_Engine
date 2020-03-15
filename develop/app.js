@@ -41,3 +41,36 @@ console.log(questions);
 // for further information. Be sure to test out each class and verify it generates an 
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work!```
+
+
+
+
+function repeat(){
+
+    inquirer
+			.prompt(questions.choice)
+			.then((res) => {
+				switch (res.memberChoice) {
+					case 'Engineer':
+						inquirer.prompt(questions.engineer).then((res) => {
+							const { engName, engID, engEmail, engGitHub } = res;
+							const eng = new Engineer(engName, engID, engEmail, engGitHub);
+							data.push(eng);
+							console.log(data);
+							writeToFile(outputPath, render(data));
+						});
+						break;
+					case 'Intern':
+						inquirer.prompt(questions.intern).then((res) => {
+							const { intName, intID, intEmail, school } = res;
+							const int = new Intern(intName, intID, intEmail, school);
+							data.push(int);
+							console.log(data);
+							writeToFile(outputPath, render(data));
+							repeat(res);
+						});
+						break;
+				}
+			})
+}
+
