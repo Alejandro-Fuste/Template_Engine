@@ -124,41 +124,17 @@ function repeat() {
 }
 
 function init() {
-	inquirer.prompt(questions.manager).then((resp) => {
-		const { manName, manID, manEmail, officeNumber } = resp;
-		const man = new Manager(manName, manID, manEmail, officeNumber);
-		data.push(man);
-		writeToFile(outputPath, render(data));
+	inquirer
+		.prompt(questions.manager)
+		.then((resp) => {
+			const { manName, manID, manEmail, officeNumber } = resp;
+			const man = new Manager(manName, manID, manEmail, officeNumber);
+			data.push(man);
+			writeToFile(outputPath, render(data));
 
-		inquirer
-			.prompt(questions.choice)
-			.then((res) => {
-				switch (res.memberChoice) {
-					case 'Engineer':
-						inquirer.prompt(questions.engineer).then((res) => {
-							const { engName, engID, engEmail, engGitHub } = res;
-							const eng = new Engineer(engName, engID, engEmail, engGitHub);
-							data.push(eng);
-							writeToFile(outputPath, render(data));
-							repeat();
-						});
-						break;
-					case 'Intern':
-						inquirer.prompt(questions.intern).then((res) => {
-							const { intName, intID, intEmail, school } = res;
-							const int = new Intern(intName, intID, intEmail, school);
-							data.push(int);
-							writeToFile(outputPath, render(data));
-							repeat();
-						});
-						break;
-					default:
-						break;
-				}
-			})
-			// .then(() => console.log('Successfully wrote file!'))
-			.catch((err) => console.log(err));
-	});
+			repeat();
+		})
+		.catch((err) => console.log(err));
 }
 
 init();
