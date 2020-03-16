@@ -117,6 +117,7 @@ function repeat() {
 				});
 				break;
 			default:
+				console.log('Successfully wrote file!');
 				break;
 		}
 	});
@@ -155,7 +156,7 @@ function init() {
 						break;
 				}
 			})
-			.then(() => console.log('Successfully wrote file!'))
+			// .then(() => console.log('Successfully wrote file!'))
 			.catch((err) => console.log(err));
 	});
 }
