@@ -3,8 +3,8 @@
 
 
 <table><tr><td>
-<img align="center" src="./assets/templateGif1.gif" alt="finished gif"   width="486" height="380"/>
-<img align="center" src="./assets/templateGif2.gif" alt="finished gif"  width="486" height="380"/> 
+<img align="center" src="./assets/templateGif1.gif" alt="finished gif"   width="480" height="380"/>
+<img align="center" src="./assets/templateGif2.gif" alt="finished gif"  width="480" height="380"/> 
 </table></tr></td>
 
 
