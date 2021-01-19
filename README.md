@@ -1,9 +1,11 @@
 
 # Template_Engine [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-<img src="./assets/templateGif1.gif" alt="finished gif"  width="300"/>
 
-<img align="right" src="./assets/templateGif2.gif" alt="finished gif" width="300"/> 
+<table><tr><td>
+<img align="center" src="./assets/templateGif1.gif" alt="finished gif"  width="300"/>
+<img align="center" src="./assets/templateGif2.gif" alt="finished gif" width="300"/> 
+</table></tr></td>
 
 
 ## Description 
