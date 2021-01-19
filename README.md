@@ -1,6 +1,10 @@
 
 # Template_Engine [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+<img src="./assets/templateGif1.gif" alt="finished gif" style="border-radius: 16px" width="300" height="180"/>
+
+<img src="./assets/templateGif2.gif" alt="finished gif" style="border-radius: 16px; float: right;" width="300" height="180"/>
+
 
 ## Description 
 
@@ -70,12 +74,7 @@ npm test
 
 If you have any questions about the repo, open an issue or contact [Alejandro Fuste](https://github.com/ZepCap) directly through GitHub.
 
-## Finished HW GIF
-
-<img src="./assets/templateGif1.gif" alt="finished gif" style="border-radius: 16px" width="300" height="180"/>
-
-<img src="./assets/templateGif2.gif" alt="finished gif" style="border-radius: 16px" width="300" height="180"/>
 
 
-- - - 
+
 
