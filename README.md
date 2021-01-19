@@ -1,9 +1,9 @@
 
 # Template_Engine [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-<img src="./assets/templateGif1.gif" alt="finished gif" style="border-radius: 16px" width="300" height="180"/>
+<img src="./assets/templateGif1.gif" alt="finished gif"  style="float: right;" width="300"/>
 
-<img src="./assets/templateGif2.gif" alt="finished gif" style="border-radius: 16px; float: right;" width="300" height="180"/>
+<img src="./assets/templateGif2.gif" alt="finished gif" style="float: right;" width="300"/> 
 
 
 ## Description 
